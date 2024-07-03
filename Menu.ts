@@ -6,48 +6,43 @@ export function main() {
 
     let opcao: number;
 
-    //objetos da classe conta
-    //novas instancia da classe conta (objetos)
+    //Objetos da classe conta
+    //Novas instancia da classe conta (objetos)
 
-    const c1: Conta = new Conta(1, 1234, 1, 'julia castro', 800000.00);
-    const c2: Conta = new Conta(2, 1234, 2, 'marcela sanches', 600000.00);
+    const c1: Conta = new Conta(1, 1234, 1, 'Everton Sales', 300000.00);
+    const c2: Conta = new Conta(2, 1234, 2, 'Andre Sales', 400000.00);
 
-    // visualizando o saldo da conta 1
+    // Aqui estamos visualizando o saldo que se refere a conta 1
     c1.visualizar();
 
-    // visualizando o saldo da conta 2
+    // Aqui estamos visualizando o saldo que se refere a conta 2
     c2.visualizar();
 
-    //mosrtando o saldo da conta 1
-    console.log(`o saldo da conta 01 e: ${c1.saldo}`);
+    //Exibe o saldo da conta 1
+    console.log(`O saldo da conta 01 e: ${c1.saldo}`);
 
-    //atribuindo novo valor a conta 2 e atualizando o mesmo
-    c2.saldo = 900000.00;
+    //Atribuindo novo valor a conta 2 e atualizando o mesmo
+    c2.saldo = 10000000.00;
 
-    //mostrando o saldo da conta 2 atualizado
-    console.log(`o saldo da conta 02 e: ${c2.saldo}`);
+    //Exibe o saldo da conta 2 atualizado
+    console.log(`O saldo da conta 02 e: ${c2.saldo}`);
 
-    //saque na conta 01
-
-
-    console.log(`\nsacar 100 Reais da conta c1: ${c1.sacar(100)}`); //true
+    //Exibe o saque solicitado referente a conta 01
+    console.log(`\nSacar 15780.95 Reais da conta c1: ${c1.sacar(15780.95)}`); //true
     c1.visualizar();
 
-    console.log(`\nsacar 1700000.00 Reais da conta c2: ${c2.sacar(17000000)}`); //false
+    //Exibe o saque solicitado referente a conta 02
+    console.log(`\nSacar 20000.00 Reais da conta c2: ${c2.sacar(20000.00)}`); //false
     c2.visualizar();
 
-    //deposito nas contas
-
-    console.log(`\ndepositar 1000000 Reais da conta c1: `);
-    c1.depositar(1000000)
+    //Realizando deposito nas contas
+    console.log(`\nDepositar 25641.00 Reais da conta c1: `);
+    c1.depositar(25641.00)
     c1.visualizar();
 
-    console.log(`\ndepositar 17500000.33 Reais da conta c2: `);
-    c2.depositar(17500000.33)
+    console.log(`\nDepositar 175000.33 Reais da conta c2: `);
+    c2.depositar(175000.33)
     c2.visualizar();
-
-
-
 
     while (true) {
 
@@ -77,7 +72,7 @@ export function main() {
 
         if (opcao == 9) {
             console.log(colors.fg.greenstrong,
-                "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+                "\nInstituicao Primeira Safra - Aqui seu Dinheiro EstaSeguro");
             sobre();
             console.log(colors.reset, "");
             process.exit(0);
