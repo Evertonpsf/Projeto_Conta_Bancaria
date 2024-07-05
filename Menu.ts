@@ -6,45 +6,7 @@ import { ContaPoupanca } from "./src/model/ContaPoupanca";
 
 export function main() {
 
-    let opcao: number;
-
-    //Objetos da classe conta
-    //Novas instancia da classe conta (objetos)
-
-    const c1: Conta = new Conta(1, 1234, 1, 'Everton Sales', 300000.00);
-    const c2: Conta = new Conta(2, 1234, 2, 'Andre Sales', 400000.00);
-
-    // Aqui estamos visualizando o saldo que se refere a conta 1
-    c1.visualizar();
-
-    // Aqui estamos visualizando o saldo que se refere a conta 2
-    c2.visualizar();
-
-    //Exibe o saldo da conta 1
-    console.log(`O saldo da conta 01 e: ${c1.saldo}`);
-
-    //Atribuindo novo valor a conta 2 e atualizando o mesmo
-    c2.saldo = 10000000.00;
-
-    //Exibe o saldo da conta 2 atualizado
-    console.log(`\nO saldo da conta 02 e: ${c2.saldo}`);
-
-    //Exibe o saque solicitado referente a conta 01
-    console.log(`\nSacar 15780.95 Reais da conta c1: ${c1.sacar(15780.95)}`); //true
-    c1.visualizar();
-
-    //Exibe o saque solicitado referente a conta 02
-    console.log(`\nSacar 20000.00 Reais da conta c2: ${c2.sacar(20000.00)}`); //false
-    c2.visualizar();
-
-    //Realizando deposito nas contas
-    console.log(`\nDepositar 25641.00 Reais da conta c1: `);
-    c1.depositar(25641.00)
-    c1.visualizar();
-
-    console.log(`\nDepositar 175000.33 Reais da conta c2: `);
-    c2.depositar(175000.33)
-    c2.visualizar();
+    let opcao: number;   
 
     // novas instancias da classe ContaCorrente (objetos)
     const cc1: ContaCorrente = new ContaCorrente(3, 1234, 1, 'Amanda Magro', 1000000.00, 100000);
