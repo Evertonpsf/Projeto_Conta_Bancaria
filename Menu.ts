@@ -15,21 +15,23 @@ export function main() {
 
     // novas instancias da classe ContaCorrente (objetos)
     contas.cadastrar(new ContaCorrente(contas.gerarNumero(), 1234, 1, 'Amanda Magro', 1000000.00, 100000));
-    contas.cadastrar(new ContaCorrente(contas.gerarNumero(), 1234, 2, 'Lucas Silva', 1000.00, 100.00));
+    contas.cadastrar(new ContaCorrente(contas.gerarNumero(), 4231, 1, 'Lucas Silva', 1000.00, 100.00));
 
 
     // novas instancias da classe ContaPoupanca (objetos)
-    contas.cadastrar(new ContaPoupanca(contas.gerarNumero(), 6574, 2, 'Pandora', 200.00, 12));
-    contas.cadastrar(new ContaPoupanca(contas.gerarNumero(), 8913, 2, 'Laila', 100.00, 13));
+    contas.cadastrar(new ContaPoupanca(contas.gerarNumero(), 6578, 2, 'Pandora', 200.00, 12));
+    contas.cadastrar(new ContaPoupanca(contas.gerarNumero(), 8765, 2, 'Laila', 100.00, 13));
 
     while (true) {
 
         console.log(colors.bg.black, colors.fg.blue,
             "><><><><><><><><><><><><><><><><><><><><><><><><><><><");
         console.log("                                                     ");
-        console.log("            INSTITUICAO PRIMEIRA SAFRA               ");
+        console.log("       I . N . S . T . I . T . U . I . Ç . Ã . O     ");
+        console.log("             P . R . I . M . E . I . R . A           ");
+        console.log("                  S . A . F . R . A                  ");
         console.log("                                                     ");
-        console.log("><><><><><><><><><><><><><><><><><><><><><><><><><><><");
+        console.log("<><><><><><><><><><><><><><><><><><><><><><><><><><><");
         console.log("                                                     ");
         console.log("            1 - Criar Conta                          ");
         console.log("            2 - Listar todas as Contas               ");
@@ -39,18 +41,21 @@ export function main() {
         console.log("            6 - Sacar                                ");
         console.log("            7 - Depositar                            ");
         console.log("            8 - Transferir valores entre Contas      ");
-        console.log("            9 - Sair                                 ");
+        console.log("            9 - Procurar Por Titular                 ");
+        console.log("            0 - Sair                                 ");
         console.log("                                                     ");
         console.log("><><><><><><><><><><><><><><><><><><><><><><><><><><><");
         console.log("                                                     ",
             colors.reset);
 
-        console.log("Entre com a opção desejada: ");
+
+        console.log("\nSEJA BEM VINDO AO SEU BANCO!\n");
+        console.log("\nEnrte as opções do Menu, Abaixo informe o serviço de sua preferencia: ");
         opcao = readlinesync.questionInt("");
 
-        if (opcao == 9) {
-            console.log(colors.fg.greenstrong,
-                "\nInstituicao Primeira Safra - Aqui seu Dinheiro Esta Seguro");
+        if (opcao == 0) {
+            console.log(colors.bg.black, colors.fg.blue,
+                "\nInstituicao Primeira Safra - Aqui seu Dinheiro Esta Seguro!");
             sobre();
             console.log(colors.reset, "");
             process.exit(0);
@@ -59,23 +64,23 @@ export function main() {
         switch (opcao) {
             case 1:
                 console.log(colors.fg.whitestrong,
-                    "\n\nCriar Conta\n\n", colors.reset);
+                    "\n\nCriação de Conta!\n\n", colors.reset);
 
-                console.log('Digite o Numero da Agência: ');
+                console.log('Nos Informa o número da Agência: ');
                 agencia = readlinesync.questionInt("");
 
-                console.log('Digite o Nome do titular da Conta: ');
+                console.log('Informe o Nome Completo do titular da Conta: ');
                 titular = readlinesync.question("");
 
-                console.log('Digite o Tipo da conta: ');
+                console.log('Informe o Tipo da conta Que Deseja Criar: ');
                 tipo = readlinesync.keyInSelect(tipoContas, "", { cancel: false }) + 1;
 
-                console.log('Digite o Saldo da conta: ');
+                console.log('Informe o Saldo da Conta: ');
                 saldo = readlinesync.questionFloat("");
 
                 switch (tipo) {
                     case 1:
-                        console.log('Digite o Limite da conta: ');
+                        console.log('Solicitamos que informe o Limite da conta: ');
                         limite = readlinesync.questionFloat("");
                         contas.cadastrar(
                             new ContaCorrente(contas.gerarNumero(), agencia, tipo, titular, saldo, limite)
@@ -84,7 +89,7 @@ export function main() {
                         break;
                     case 2:
 
-                        console.log('Digite a Data de Aniversario da conta: ');
+                        console.log('Qaul a Data de Aniversario da Conta Que Seja Melhor Para você?: ');
                         aniversario = readlinesync.questionInt("");
                         contas.cadastrar(
                             new ContaPoupanca(contas.gerarNumero(), agencia, tipo, titular, saldo, aniversario)
@@ -106,7 +111,7 @@ export function main() {
                 console.log(colors.fg.whitestrong,
                     "\n\nConsultar dados da Conta - por número\n\n", colors.reset);
 
-                console.log("Digite o numero da Conta: ");
+                console.log("informe o Número da Conta que Deseja Consultar: ");
                 numero = readlinesync.questionInt("");
 
                 contas.procurarPorNumero(numero);
@@ -115,29 +120,29 @@ export function main() {
                 break;
             case 4:
                 console.log(colors.fg.whitestrong,
-                    "\n\nAtualizar dados da Conta\n\n", colors.reset);
+                    "\n\nAtualização dos dados da Conta\n\n", colors.reset);
 
-                console.log("Digite o numero da Conta: ");//editar tudo aqui depois tambem!
+                console.log("Informe o Número da Conta que Deseja Atualizar: ");
                 numero = readlinesync.questionInt("");
 
                 let conta = contas.buscarNoArray(numero);
 
                 if (conta) {
 
-                    console.log('Digite o Numero da Agência: ');
+                    console.log('Informe o Número da Agência Que Se Refere a Mesma Conta: ');
                     agencia = readlinesync.questionInt("");
 
-                    console.log('Digite o Nome do titular da Conta: ');
+                    console.log('Informe Nome do titular da Conta: ');
                     titular = readlinesync.question("");
 
-                    console.log('Digite o Saldo da conta: ');
+                    console.log('Informe o Saldo da conta: ');
                     saldo = readlinesync.questionFloat("");
 
                     tipo = conta.tipo;
 
                     switch (tipo) {
                         case 1:
-                            console.log('Digite o Limite da conta: ');
+                            console.log('Informe o Limite da conta de sua Preferencia: ');
                             limite = readlinesync.questionFloat("");
                             contas.atualizar(
                                 new ContaCorrente(numero, agencia, tipo, titular, saldo, limite)
@@ -146,7 +151,7 @@ export function main() {
                             break;
                         case 2:
 
-                            console.log('Digite a Data de Aniversario da conta: ');
+                            console.log('Informe a Data de Aniversario da conta: ');
                             aniversario = readlinesync.questionInt("");
                             contas.atualizar(
                                 new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario)
@@ -156,7 +161,7 @@ export function main() {
                     }
 
                 } else {
-                    console.log(`\n a conta numero:  ${numero} nao foi encontrada!`)
+                    console.log(`\nO numero referente a conta:  ${numero} nao foi localizado!`)
                 }
 
                 keyPress()
@@ -164,9 +169,9 @@ export function main() {
 
             case 5:
                 console.log(colors.fg.whitestrong,
-                    "\n\nApagar uma Conta\n\n", colors.reset);
+                    "\n\nExclusao de uma Conta!\n\n", colors.reset);
 
-                console.log("Digite o numero da Conta: ");//editar tudo aqui depois tambem!
+                console.log("Informe o numero da Conta que Deseja Excluir: ");//editar tudo aqui depois tambem!
                 numero = readlinesync.questionInt("");
 
                 contas.deletar(numero);
@@ -175,12 +180,12 @@ export function main() {
                 break;
             case 6:
                 console.log(colors.fg.whitestrong,
-                    "\n\nSaque\n\n", colors.reset);
+                    "\n\nInforme os dados para realizar seu Saque.\n\n", colors.reset);
 
-                console.log("Digite o numero da Conta: ");//editar tudo aqui depois tambem!
+                console.log("\nInforme o numero da Conta que desejar Efetuar o Saque: ");//editar tudo aqui depois tambem!
                 numero = readlinesync.questionInt("");
 
-                console.log("Digite o valor do saque: ");//editar tudo aqui depois tambem!
+                console.log("/nInforme o Valo que Deseja Sacar R$: ");//editar tudo aqui depois tambem!
                 valor = readlinesync.questionFloat("");
 
                 contas.sacar(numero, valor);
@@ -190,9 +195,9 @@ export function main() {
                 break;
             case 7:
                 console.log(colors.fg.whitestrong,
-                    "\n\nFaça seu Depósito\n\n", colors.reset);
+                    "\n\nFaça seu Depósito, Informando os Dados solicitados Abaixo.\n\n", colors.reset);
 
-            
+
                 console.log("Informe o numero da Conta: ");//editar tudo aqui depois tambem!
                 numero = readlinesync.questionInt("");
 
@@ -207,21 +212,26 @@ export function main() {
                 console.log(colors.fg.whitestrong,
                     "\n\nTransferência entre Contas\n\n", colors.reset);
 
-         
-                console.log("Digite o numero da Conta de Origem: ");//editar tudo aqui depois tambem!
+
+                console.log("Informe o numero da Conta de Origem ( Conta que o Dinheiro vai ser retirado): ");//editar tudo aqui depois tambem!
                 numero = readlinesync.questionInt("");
 
-                console.log("Digite o numero da Conta de Destino: ");//editar tudo aqui depois tambem!
+                console.log("Informe o numero da Conta de Destino ( Conta que recebera o dinheiro): ");//editar tudo aqui depois tambem!
                 numeroDestino = readlinesync.questionInt("");
 
 
-                console.log("Digite o valor do saque: ");//editar tudo aqui depois tambem!
+                console.log("Informe o Valor que deseja Sacar R$: ");//editar tudo aqui depois tambem!
                 valor = readlinesync.questionFloat("");
 
                 contas.transferir(numero, numeroDestino, valor);
 
                 keyPress()
                 break;
+            case 9:
+                console.log("Informe o nome!")
+                console.log('Porcurar Por Titular da Conta: ');
+                titular = readlinesync.question("");
+                contas.procurarPorTitular(titular);
             default:
                 console.log(colors.fg.whitestrong,
                     "\nOpção Inválida!\n", colors.reset);
@@ -236,15 +246,17 @@ export function main() {
 /* Função com os dados da pessoa desenvolvedora */
 function sobre(): void {
     console.log("\n><><><><><><><><><><><><><><><><><><><><><><><><><><>");
+    console.log("                                                       ");
     console.log("Projeto Desenvolvido por: Everrton Pinheiro Sales Figueiredo ");
     console.log("Generation Brasil - everton.figueiredo@genstudents.org");
     console.log("https://github.com/Evertonpsf");
-    console.log("><><><><><><><><><><><><><><><><><><><><><><><><><><><");
+    console.log("                                                       ");
+    console.log("><><><><><><><><><><><><><><><><><><><><><><><><><><><>");
 }
 
 function keyPress(): void {
     console.log(colors.reset, "");
-    console.log("\nPressione enter para continuar...");
+    console.log("\nPressione enter para Continuar...");
     readlinesync.prompt();
 }
 

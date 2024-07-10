@@ -66,7 +66,7 @@ export abstract class Conta {
     public sacar(valor: number): boolean {
 
         if (this._saldo < valor) {
-            console.log("saldo e insuficiente!");
+            console.log("Saldo Informado é Insuficiente!");
             return false;
         }
 
@@ -96,14 +96,14 @@ export abstract class Conta {
                 break
         }
 
-        console.log("\n*************************************");
-        console.log("\ndados da conta");
-        console.log("\n*************************************");
-        console.log(`numero da conta: ${this._numero}`);
-        console.log(`numero da agencia: ${this._agencia}`);
-        console.log(`tipo da conta: ${tipo}`);
-        console.log(`titular da conta: ${this._titular}`);
-        console.log(`saldo conta: ${this._saldo.toFixed(2)}`);
+        console.log("\n><><><><><><><><><><><><><><><")
+        console.log("\nInformações Gerais da Conta");
+        console.log("\n><><><><><><><><><><><><><><><");
+        console.log(`\nNúmero da Conta: ${this._numero}`);
+        console.log(`Número da Agência: ${this._agencia}`);
+        console.log(`Tipo da Conta: ${tipo}`);
+        console.log(`Titular da Conta: ${this._titular}`);
+        console.log(`Saldo Conta: ${this._saldo.toFixed(2)}`)
 
     }
     //exemplo de um metoodo abstrato
